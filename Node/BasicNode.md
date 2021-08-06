@@ -29,6 +29,17 @@ npm init -y
 In both the cases you can be able to change all the parameters any time you want to.
 
 
+`
+npx express-generator
+`
+`
+nmp i
+`
+
+`
+npm i nodemon -D
+`
+
 
 
 [Go To Top 🔼](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#content)
