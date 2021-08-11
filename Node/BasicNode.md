@@ -8,9 +8,9 @@
 
 
 ### 1. What is Node
-  Node.js is free, open source server environment which could be runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.). 
-  
-  Node. js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node. js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+- Node.js is a runtime environment for java script, which runs on server.
+- Node.js is free, open source server environment which could be runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.). 
+- Node. js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node. js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
 
 ### 2. How to install on your system
 - Download Node.js Installer. In a web browser, navigate to https://nodejs.org/en/download/
