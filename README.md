@@ -1,6 +1,5 @@
-# CookBooks 📚
-Cook book is the secrete book of a cook, the same concept used here to share knowledge secretly 😉
-
+# CodeBooks 📚
+This code book is a collection of those codes and steps which will help to code easily.
 
 ## List Of Documentation
 
