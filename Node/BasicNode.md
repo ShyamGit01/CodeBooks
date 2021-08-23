@@ -3,7 +3,7 @@
 ## Content
 1. [What is Node](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#1-what-is-node)
 2. [How to install on your system](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#2-how-to-install-on-your-system)
-3. [Feature of Nodejs](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3.-Feature-of-Nodejs)
+3. [Feature of Nodejs](https://github.com/ShyamGit01/CodeBooks/blob/main/Node/BasicNode.md#3-feature-of-nodejs)
 4. [How to start a node project](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3-how-to-start-a-node-project)
 5. What is package.Json
 
