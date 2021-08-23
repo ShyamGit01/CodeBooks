@@ -3,8 +3,9 @@
 ## Content
 1. [What is Node](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#1-what-is-node)
 2. [How to install on your system](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#2-how-to-install-on-your-system)
-3. [How to start a node project](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3-how-to-start-a-node-project)
-4. What is package.Json
+3. [Feature of Nodejs](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3.-Feature-of-Nodejs)
+4. [How to start a node project](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3-how-to-start-a-node-project)
+5. What is package.Json
 
 
 ### 1. What is Node
@@ -19,6 +20,9 @@
 - Verify Installation.
   
 
-
+### 3. Feature of Nodejs
+- **Asynchronous and Event Driven** - Node.js servers are asynchronous,non-blocking. Means it never waits for API to return data. It simply moves to next process if any process took more time to execute. 
+- **Single Threaded but Highly Scalable** - Node.js uses a single threaded model with event looping. Event mechanism helps the server to respond in a non-blocking way and makes the server highly scalable 
+- **No Buffering** - Node.js applications never buffer any data. These applications simply output the data in chunks.
 
 [Go To Top 🔼](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#content)
