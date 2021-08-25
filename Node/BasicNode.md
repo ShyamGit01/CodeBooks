@@ -4,8 +4,7 @@
 1. [What is Node](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#1-what-is-node)
 2. [Feature of Nodejs](https://github.com/ShyamGit01/CodeBooks/blob/main/Node/BasicNode.md#2-feature-of-nodejs)
 3. [How to install on your system](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#3-how-to-install-on-your-system)
-4. [How to start a node project](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#4-how-to-start-a-node-project)
-5. What is package.Json
+4. [Where to Use Node.js?]
 
 
 ### 1. What is Node
@@ -23,5 +22,13 @@
 - Download Node.js Installer. In a web browser, navigate to https://nodejs.org/en/download/
 - Install Node.js and NPM from Browser. Once the installer finishes downloading, launch it.
 - Verify Installation.
+
+### 4. Where to Use Node.js?
+ - I/O bound Applications(Refers to programs with a large number of I/O (input/output) operations)
+ - Data Streaming Applications(applications that send data as it arrives or as it is created, or even data in existing files, directly to a client service or application such as a web browser like Chrome, or the apps on a Roku video player, or mobile apps on an iPhone or Android phone.) 
+ - Data Intensive Real-time Applications (DIRT)
+ - JSON APIs based Applications
+ - Single Page Applications
+
 
 [Go To Next(StepsToCreateNodeApp) ➡](https://github.com/ShyamGit01/CodeBooks/blob/main/Node/StepsToCreateNodeApp.md) 
