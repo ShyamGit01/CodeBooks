@@ -13,10 +13,13 @@ npm --version
 There is a simple syntax to install any Node.js module −
 
 1. To install node module for a single project
+
 `
 npm install <Module Name>
 `
+
 or can replace `install` with `i` only it will work as same, the `i` represents short form of `install`
+
 `
 npm i <Module Name>
 `
@@ -33,3 +36,8 @@ To use the module you have installed, you need to write a single line of code
 var <Variable Name> = require('<Module Name>');
 `
 
+You can use the following command to check all the modules installed globally −
+
+`npm ls -g` (for global package list)
+
+`npm ls` (for local package list)
