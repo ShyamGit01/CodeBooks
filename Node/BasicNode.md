@@ -1,4 +1,4 @@
-# Basic Node 📘
+# Introduction to NODE 📘
 
 ## Content
 1. [What is Node](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#1-what-is-node)
