@@ -1,5 +1,10 @@
 # Steps to Create new Node App
-There are 2 types of method we can use to start a new node app
+There are 2 types of method we can use to start a new node app **Default method**. **Using Express generator**
+
+Before that the general process is, 
+- **Import required modules** (We use the require directive to load Node.js modules.)
+- **Create server** (A server which will listen to client's requests similar to Apache HTTP Server.)
+- **Read request and return response** (The server created in an earlier step will read the HTTP request made by the client which can be a browser or a console and return the response)
 
 ## Create New App
 1. Default Method
