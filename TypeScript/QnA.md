@@ -5,7 +5,7 @@
 
 
 ### 1. What is an Interface?
-An interface in TypeScript is a way to define the shape of an object. It acts as a contract that enforces a specific structure for an object, ensuring type safety and better code maintainability.
+An interface in TypeScript defines the structure of an object. It ensures the object has specific properties and types, making the code safer and easier to maintain.
 
 #### Key Features of Interfaces
 1. Defines Object Structure - Ensures objects have specific properties with defined types.
