@@ -1,7 +1,7 @@
 # Introduction to TypeScript 📘
 
 ## Content
-1. [What is an Interface?](https://github.com/ShyamGit01/CookBooks/blob/main/Node/BasicNode.md#1-what-is-node)
+1. [What is an Interface?](https://github.com/ShyamGit01/CodeBooks/edit/main/TypeScript/QnA.md#1-what-is-an-interface)
 
 
 ### 1. What is an Interface?
@@ -49,6 +49,12 @@ const employee: Employee = {
 };
 ```
 - `Employee` inherits properties from `Person` and adds `employeeId`.
+
+####  Why Use Interfaces?
+✅ Type Safety: Prevents errors by enforcing object structure.
+✅ Code Readability: Makes it clear what shape an object should have.
+✅ Extensibility: Easily extend existing interfaces.
+✅ Works with Classes: Interfaces can be implemented by classes.
 
 
 [move to Content](https://github.com/ShyamGit01/CodeBooks/blob/main/TypeScript/QnA.md#content)
