@@ -518,3 +518,327 @@ Uses HTTP methods GET, POST, PUT, DELETE.
 
 # 100. What is the purpose of worker_threads module?
  worker_threads module enables using threads that execute JavaScript in parallel.
+
+# 101. Which of the following is used for asynchronous iteration in Node.js?
+The for...await...of loop is used to asynchronously iterate over an iterable object, such as an array of Promises, in Node.js.
+
+
+# 102. Types of For loop in node.
+// 1. Traditional for loop
+// - Basic iteration over a sequence of numbers
+// - Most straightforward loop control
+for (let i = 0; i < array.length; i++) {
+    // Loop body
+}
+
+// 2. for...in loop 
+// - Iterates over enumerable properties of an object
+// - Returns property names/keys
+for (let key in object) {
+    // Loop body using object[key]
+}
+
+// 3. for...of loop
+// - Iterates over iterable objects (arrays, strings, etc)
+// - Returns values directly
+for (let value of iterable) {
+    // Loop body using value
+}
+
+// 4. for...await...of loop
+// - Asynchronously iterates over async iterable objects
+// - Waits for promises to resolve
+async function example() {
+    for await (let value of asyncIterable) {
+        // Loop body using value
+    }
+}
+
+// 5. forEach loop
+// - Array method that executes callback for each element
+// - Cannot break/continue
+array.forEach((item, index) => {
+    // Loop body
+});
+
+// Example of asynchronous iteration using for...await...of
+async function readFiles(fileList) {
+    const fs = require('fs').promises;
+    
+    for await (const file of fileList) {
+        const content = await fs.readFile(file, 'utf8');
+        console.log(content);
+    }
+}
+
+// Example usage:
+const files = ['file1.txt', 'file2.txt', 'file3.txt'];
+readFiles(files);
+
+
+# 103. Creating a simple promise
+```
+const myPromise = new Promise((resolve, reject) => {
+    // Simulating an async operation
+    setTimeout(() => {
+        const randomNum = Math.random();
+        if (randomNum > 0.5) {
+            resolve(`Success! Random number is ${randomNum}`);
+        } else {
+            reject(`Failed! Random number is ${randomNum}`);
+        }
+    }, 1000);
+});
+```
+// Using the promise
+```
+myPromise
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log('Promise completed');
+    });
+```
+
+// Promise chaining example
+```
+const chainedPromise = new Promise((resolve, reject) => {
+    resolve(1);
+})
+    .then(result => {
+        return result * 2;
+    })
+    .then(result => {
+        return result * 3;
+    })
+    .then(result => {
+        console.log(result); // 6
+    });
+```
+
+// Promise.all example
+```
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise(resolve => setTimeout(() => resolve('foo'), 2000));
+const promise3 = Promise.resolve(42);
+
+Promise.all([promise1, promise2, promise3])
+    .then(values => {
+        console.log(values); // [3, "foo", 42]
+    });
+```
+
+// Async/await usage with promises
+```
+async function asyncFunction() {
+    try {
+        const result = await myPromise;
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+```
+
+# 104. Types of promiss
+// 1. Basic Promise
+```
+const basicPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Basic promise resolved");
+    }, 1000);
+});
+```
+
+// 2. Promise.resolve() - Creates already resolved promise
+```
+const resolvedPromise = Promise.resolve("Already resolved");
+```
+
+// 3. Promise.reject() - Creates already rejected promise
+```
+const rejectedPromise = Promise.reject(new Error("Already rejected"));
+```
+
+// 4. Promise.all() - Waits for all promises to resolve
+```
+const promise1 = Promise.resolve(1);
+const promise2 = Promise.resolve(2);
+const promise3 = Promise.resolve(3);
+
+Promise.all([promise1, promise2, promise3])
+    .then(values => console.log(values)) // [1, 2, 3]
+    .catch(error => console.error(error));
+```
+
+// 5. Promise.race() - Resolves/rejects as soon as one promise settles
+```
+const promise4 = new Promise(resolve => setTimeout(() => resolve("First"), 1000));
+const promise5 = new Promise(resolve => setTimeout(() => resolve("Second"), 500));
+
+Promise.race([promise4, promise5])
+    .then(result => console.log(result)) // "Second"
+    .catch(error => console.error(error));
+```
+
+// 6. Promise.allSettled() - Waits for all promises to settle
+```
+const promise6 = Promise.resolve(1);
+const promise7 = Promise.reject("Error");
+
+Promise.allSettled([promise6, promise7])
+    .then(results => console.log(results));
+    // [{status: "fulfilled", value: 1}, 
+    //  {status: "rejected", reason: "Error"}]
+```
+
+// 7. Promise.any() - Resolves when any promise resolves
+```
+const promise8 = Promise.reject("Error 1");
+const promise9 = Promise.resolve("Success");
+const promise10 = Promise.reject("Error 2");
+
+Promise.any([promise8, promise9, promise10])
+    .then(value => console.log(value)) // "Success"
+    .catch(error => console.error(error));
+```
+
+// 8. Chained Promises
+```
+new Promise((resolve, reject) => {
+    resolve(1);
+})
+.then(result => result * 2)
+.then(result => result * 3)
+.then(result => console.log(result)) // 6
+.catch(error => console.error(error));
+```
+
+// 9. Promise with timeout
+```
+function promiseWithTimeout(promise, timeout) {
+    const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Timeout')), timeout);
+    });
+    return Promise.race([promise, timeoutPromise]);
+}
+```
+
+// 10. Async/await with Promise
+```
+async function asyncPromise() {
+    try {
+        const result = await new Promise((resolve) => {
+            setTimeout(() => resolve("Async result"), 1000);
+        });
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+```
+
+// How Node.js Works - Core Components and Flow
+
+// 1. V8 Engine
+// - Google's open source JavaScript engine
+// - Compiles JavaScript code to machine code
+const v8Example = "V8 compiles this JavaScript code";
+
+// 2. Event Loop
+// - Heart of Node.js asynchronous programming
+// - Handles all callbacks and non-blocking operations
+function eventLoopExample() {
+    console.log('Start');
+    
+    setTimeout(() => {
+        console.log('Timer callback');
+    }, 0);
+    
+    Promise.resolve().then(() => {
+        console.log('Promise callback'); 
+    });
+    
+    console.log('End');
+}
+
+// 3. Libuv
+// - Handles asynchronous operations
+// - Manages thread pool for heavy operations
+const fs = require('fs');
+fs.readFile('file.txt', (err, data) => {
+    // Uses libuv thread pool
+    if (err) throw err;
+    console.log(data);
+});
+
+// 4. Node.js Core Modules
+// - Built-in modules like http, fs, path etc
+const http = require('http');
+const server = http.createServer((req, res) => {
+    res.end('Hello World');
+});
+
+// 5. Event Emitter
+// - Implements Observer pattern
+// - Core of Node.js event-driven architecture
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+    console.log('Event occurred');
+});
+
+// 6. Call Stack
+// - Tracks function execution
+function first() {
+    second();
+}
+function second() {
+    third();
+}
+function third() {
+    console.log('Call stack example');
+}
+
+// 7. Callback Queue
+// - Stores callback functions
+setTimeout(() => {
+    console.log('Callback queue example');
+}, 1000);
+
+// 8. Worker Threads
+// - Handles CPU-intensive tasks
+const { Worker } = require('worker_threads');
+const worker = new Worker(`
+    // CPU intensive task
+    const result = fibonacci(100);
+`);
+
+// 9. Single Thread Event Loop Architecture
+function nonBlockingExample() {
+    // This won't block
+    fs.readFile('large-file.txt', (err, data) => {
+        if (err) throw err;
+        console.log('File read complete');
+    });
+    
+    // Code continues executing
+    console.log('Reading file...');
+}
+
+// 10. Asynchronous Flow
+async function asyncFlowExample() {
+    console.log('Start');
+    
+    const promise = new Promise(resolve => {
+        setTimeout(() => resolve('Async operation complete'), 1000);
+    });
+    
+    await promise;
+    console.log('End');
+}
