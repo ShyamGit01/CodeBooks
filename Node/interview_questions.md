@@ -4,9 +4,43 @@
 ## Basic Level Questions
 
 ### 1. What is Node.js?
- Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser. 
+ Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser (server side). 
 It uses Chrome's V8 JavaScript engine and enables building scalable network applications.
+- not a language, framework
 
+### 1.2 What is role of framework?
+A framework is a pre-written set of tools, libraries, and best practices that provides a structured foundation for building software applications efficiently and consistently.
+- works like wrapper over runtime env.
+- providing additional feature lige mentioned below
+
+| Role |        Description                |
+| -----| --------------------------------------------------------------------- |
+| **1. Structure & Organization** | Provides a consistent architecture (e.g., MVC – Model-View-Controller) to organize your code logically.     |
+| **2. Code Reusability**         | Offers pre-built components and functions to avoid writing repetitive code.                                 |
+| **3. Productivity Boost**       | Speeds up development by reducing boilerplate and giving ready-to-use features.                             |
+| **4. Maintainability**          | Encourages best practices, making the codebase easier to maintain and scale.                                |
+| **5. Security**                 | Many frameworks handle common security concerns like input validation, CSRF, XSS protection out-of-the-box. |
+| **6. Community & Ecosystem**    | Comes with plugins, modules, and community support that expand its capabilities.                            |
+
+### 1.3 Top Reasons Why Node.js Is Preferred ?
+| Reason   | Explanation                                           |
+| -------- | ----------------------------------------------------- |
+| **1. JavaScript Everywhere**         | You can use **JavaScript on both frontend and backend**, reducing context switching and unifying your codebase.                                                                                 |
+| **2. Non-blocking I/O & Event Loop** | Node.js uses an **asynchronous**, **non-blocking** model (via **libuv**) that handles **thousands of concurrent connections efficiently**, making it ideal for real-time and high-traffic apps. |
+| **3. Lightweight & Fast**            | Built on **Google's V8 engine**, Node.js is highly optimized and faster in I/O-heavy operations compared to traditional, thread-blocking models like Java/PHP.                                  |
+| **4. NPM Ecosystem**                 | The **Node Package Manager (NPM)** is the world’s largest open-source library repository — you get modules for almost everything.                                                               |
+| **5. Microservices & APIs**          | Node.js is lightweight and modular, making it great for **microservice architectures** and **REST/GraphQL APIs**.                                                                               |
+| **6. Real-time Apps**                | Perfect for apps like **chat, games, live dashboards** (thanks to libraries like `socket.io`). Java and PHP aren't as naturally suited for this.                                                |
+| **7. Dev Speed & Startup Culture**   | Node's simplicity, fast iteration, and massive community make it a favorite for startups and rapid MVP development.                                                                             |
+
+### 1.4 What is REPL in Node.js?
+REPL stands for:
+`Read – Eval – Print – Loop`
+
+It is an interactive shell that allows you to:
+- Run JavaScript code line-by-line
+- Quickly test expressions, functions, or Node.js features
+- Debug small snippets without creating files
 
 ### 2. What are the key features of Node.js?
 
@@ -17,6 +51,86 @@ It uses Chrome's V8 JavaScript engine and enables building scalable network appl
 - Package Manager (npm)
 - Large and Active Community
 
+### 2.2 what is Event, EventEmitter, Event Queue, Event Handler, Event Loop in node ?
+Event : An event is a signal that something has happened.
+
+For example:
+- A file has been read
+- A request has arrived
+- A timer has completed
+
+EventEmitter :  The EventEmitter class (in the events module) allows you to:
+- Emit (trigger) custom events
+- Listen for them with event handlers
+
+Event Queue : The event queue is a queue where asynchronous tasks (callbacks, events, timers, etc.) are placed when they are ready to be executed.
+- After the current call stack finishes, the event loop checks this queue.
+- It processes one event at a time (non-blocking).
+
+Event Handler : An event handler (or listener) is a function that gets executed when a specific event is emitted.
+
+Event Loop : The event loop is the heart of Node.js. It handles:
+- Asynchronous operations
+- Callback execution
+- Timer handling
+- Non-blocking I/O
+
+It continuously checks:
+- Is the call stack empty?
+- Are there events in the queue?
+- If yes, it dequeues and runs the associated handler.
+
+```
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+emitter.on('message', (msg) => {
+  console.log('Handled:', msg);
+});
+
+setTimeout(() => {
+  console.log('Timer Done');
+  emitter.emit('message', 'Hello World');
+}, 1000);
+
+console.log('Program Started');
+```
+
+Execution Flow:
+- console.log('Program Started') runs immediately.
+- setTimeout() is offloaded to the Timer API (not blocking).
+- The event loop waits for tasks.
+- After 1 second, the timer’s callback is placed in the event queue.
+- The event loop pulls it in and executes:
+    - console.log('Timer Done')
+    - emitter.emit(...) emits the event
+    - Event handler runs: console.log('Handled: Hello World')
+
+### 2.3 what is event in node and how it woks ?
+| Term              | Description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| **Event**         | Notification that something happened (e.g., `data`, `connect`) |
+| **EventEmitter**  | Tool to emit and listen for events                             |
+| **Event Queue**   | Queue of tasks waiting for execution                           |
+| **Event Handler** | Function that executes when an event occurs                    |
+| **Event Loop**    | Mechanism that processes the event queue in a non-blocking way |
+
+
+### 2.4 what is Synchronous code, Microtasks, Macrotasks ?
+Synchronous Code : Runs immediately, line-by-line, on the main thread.
+Microtasks : Tasks that are scheduled to run right after synchronous code but before any macrotask.
+- Examples of microtasks:
+    - Promise.then(), catch(), finally()
+    - await (code after await)
+    - queueMicrotask()
+    - process.nextTick() (Node.js only — executes even before Promises!)
+
+Macrotasks : Scheduled to run after microtasks are cleared.
+- Examples of macrotasks:
+    - setTimeout, setInterval
+    - setImmediate (Node.js)
+    - I/O callbacks
+    - UI rendering (in browsers)
 
 ### 3. What is npm?
  npm (Node Package Manager) is the default package manager for Node.js. 
